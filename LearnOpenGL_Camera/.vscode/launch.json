@@ -1,0 +1,50 @@
+{
+    "version": "0.2.0",
+    "logging": {
+        "engineLogging": true,
+        "trace": true,
+        "traceResponse": true
+    },
+    "configurations": [
+        {
+            "name": "Run target",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "cwd": "${command:cmake.launchTargetDirectory}",
+            "args": [],
+            "stopAtEntry": false,
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            // Windows part
+            "windows": {
+                "name": "Run target",
+                "type": "cppdbg",
+                "request": "launch",
+                "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
+                "program": "${command:cmake.launchTargetPath}",
+            },
+            // Linux part
+            "linux": {
+                    "name": "Run target",
+                    "type": "cppdbg",
+                    "request": "launch",
+                    "miDebuggerPath": "/usr/bin/gdb",
+                    "program": "${command:cmake.launchTargetPath}",
+            },
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Display vector variable",
+                    "text": "display vec",
+                    "ignoreFailures": true
+                }
+            ],
+         },         
+    ],
+}
